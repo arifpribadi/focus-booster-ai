@@ -32,32 +32,32 @@ export const Timer = ({
       {/* Timer circle */}
       <div
         className={cn(
-          "relative backdrop-blur-glass bg-card/40 border border-primary/20 rounded-full p-12 shadow-2xl transition-all duration-500",
+          "relative backdrop-blur-glass bg-card/40 border border-primary/20 rounded-full p-8 sm:p-12 shadow-2xl transition-all duration-500",
           isRunning && "border-primary/40 shadow-[0_0_60px_hsl(var(--primary)/0.3)]"
         )}
       >
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-4 sm:space-y-6">
           {/* Phase label */}
-          <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+          <div className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider">
             {phase === "focus" && "Focus Time"}
             {phase === "break" && "Break Time"}
             {phase === "idle" && "Ready to Focus"}
           </div>
 
           {/* Time display */}
-          <div className="text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="text-5xl sm:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             {formatTime(timeLeft)}
           </div>
 
           {/* Control buttons */}
-          <div className="flex items-center justify-center gap-4 pt-4">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 pt-2 sm:pt-4">
             {!isRunning ? (
               <Button
                 onClick={onStart}
                 size="lg"
-                className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-lg"
+                className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-lg text-sm sm:text-base"
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 {phase === "idle" ? "Start Focus" : "Resume"}
               </Button>
             ) : (
@@ -65,9 +65,9 @@ export const Timer = ({
                 onClick={onPause}
                 size="lg"
                 variant="outline"
-                className="border-primary/30 hover:bg-primary/10"
+                className="border-primary/30 hover:bg-primary/10 text-sm sm:text-base"
               >
-                <Pause className="mr-2 h-5 w-5" />
+                <Pause className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Pause
               </Button>
             )}
@@ -76,9 +76,9 @@ export const Timer = ({
               onClick={onReset}
               size="lg"
               variant="ghost"
-              className="hover:bg-muted/50"
+              className="hover:bg-muted/50 text-sm sm:text-base"
             >
-              <RotateCcw className="mr-2 h-4 w-4" />
+              <RotateCcw className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
               Reset
             </Button>
           </div>
